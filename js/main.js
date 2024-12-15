@@ -1,32 +1,28 @@
 // 'Return to top' button on scroll
 
-window.addEventListener('scroll', function() {
-  const scrollToTopButton = document.getElementById('top');
-  if (window.scrollY > 200) {
-      scrollToTopButton.style.display = 'block';
+$(window).scroll(function() {
+  const scrollToTopButton = $('#top');
+  if ($(this).scrollTop() > 200) {
+    scrollToTopButton.show();
   } else {
-      scrollToTopButton.style.display = 'none';
+    scrollToTopButton.hide();
   }
 });
 
-document.getElementById('top').addEventListener('click', function() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+$('#top').click(function() {
+  $('html, body').animate({ scrollTop: 0 }, 'smooth');
 });
 
 
 // Trigger unloading animation when exiting hover mode
 
-document.addEventListener('DOMContentLoaded', function() {
-  const links = document.querySelectorAll('nav a');
-
-  links.forEach(link => {
-    link.addEventListener('mouseover', function() {
-      link.classList.remove('unloading');
-    });
-
-    link.addEventListener('mouseout', function() {
-      link.classList.add('unloading');
-    });
-  });
+$(document).ready(function() {
+  $('nav a').hover(
+    function() {
+      $(this).removeClass('unloading');
+    },
+    function() {
+      $(this).addClass('unloading');
+    }
+  );
 });
-
