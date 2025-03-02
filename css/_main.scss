@@ -601,14 +601,14 @@ p {
   }
 }
 
-.span-text {
-  color: color(light-blue);
-}
-
 .projects-ul {
   padding-left: 15px !important;
   li {
     text-align: left;
     font-size: 0.8rem;
   }
+}
+
+.tech-text {
+  color: color(light-blue);
 }
